@@ -80,21 +80,23 @@
 
   --radius: 0.45rem;
 
-  --sidebar: oklch(0.985 0 0);
+  --sidebar: #162891;
 
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-foreground: #B2C0F9;
 
-  --sidebar-primary: oklch(0.546 0.245 262.881);
+  --sidebar-primary: #2747D0;
 
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+  --sidebar-primary-foreground: #ffffff;
 
-  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent: rgba(39, 71, 208, 0.75);
 
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent-hover: rgba(39, 71, 208, 0.30);
 
-  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-accent-foreground: #ffffff;
 
-  --sidebar-ring: oklch(0.708 0 0)
+  --sidebar-border: rgba(178, 192, 249, 0.15);
+
+  --sidebar-ring: rgba(178, 192, 249, 0.5)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -183,6 +185,7 @@ code {
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent-hover: var(--sidebar-accent-hover);
   --color-sidebar-accent: var(--sidebar-accent);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -244,14 +247,15 @@ code {
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.623 0.214 259.815);
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: #162891;
+  --sidebar-foreground: #B2C0F9;
+  --sidebar-primary: #2747D0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(39, 71, 208, 0.75);
+  --sidebar-accent-hover: rgba(39, 71, 208, 0.30);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(178, 192, 249, 0.15);
+  --sidebar-ring: rgba(178, 192, 249, 0.5);
 }
 
 @layer base {
