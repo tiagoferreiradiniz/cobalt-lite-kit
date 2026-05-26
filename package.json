@@ -11,8 +11,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/cobalt-lite-kit.es.js",
       "require": "./dist/cobalt-lite-kit.cjs.js"
-    },
-    "./styles": "./dist/style.css"
+    }
   },
   "files": [
     "dist"
@@ -81,6 +80,7 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12",
+    "vite-plugin-dts": "^5.0.1",
     "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "^4.1.7"
   }

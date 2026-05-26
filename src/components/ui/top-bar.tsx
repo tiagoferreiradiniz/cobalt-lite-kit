@@ -1,4 +1,3 @@
-import * as React from "react"
 import { Bell, ChevronLeft, ChevronRight, Search, Settings } from "lucide-react"
 
 import { cn } from "@/lib/utils"

@@ -5,13 +5,14 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
+import dts from 'vite-plugin-dts'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { playwright } from '@vitest/browser-playwright'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), libInjectCss()],
+  plugins: [react(), tailwindcss(), libInjectCss(), dts({ include: ['src'], insertTypesEntry: true, tsconfigPath: './tsconfig.app.json' })],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
