@@ -1,5 +1,5 @@
 {
-  "name": "cobalt-lite-kit",
+  "name": "@teamviewer/cobalt-lite-kit",
   "version": "0.1.0",
   "description": "A UI component library built on shadcn",
   "type": "module",
@@ -16,12 +16,17 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.figma.com/npm/8492c267-bee7-4d8c-a2fb-e03c534a2c33/registry/"
+  },
   "sideEffects": [
     "**/*.css"
   ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "prepublishOnly": "npm run build",
     "build:watch": "vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview",
