@@ -36,6 +36,7 @@ export default defineConfig({
         'react/jsx-runtime',
         /^radix-ui/,
         /^@radix-ui/,
+        /^@base-ui/,
         'tailwindcss',
         'recharts',
         '@tanstack/react-table',
@@ -45,6 +46,9 @@ export default defineConfig({
         'cmdk',
         'input-otp',
         'react-resizable-panels',
+        'sonner',
+        'lucide-react',
+        'date-fns',
       ],
       output: {
         globals: {
