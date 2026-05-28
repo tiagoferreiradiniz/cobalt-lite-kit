@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import dts from 'vite-plugin-dts'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { playwright } from '@vitest/browser-playwright'
@@ -12,7 +11,7 @@ import { playwright } from '@vitest/browser-playwright'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), libInjectCss(), dts({ include: ['src'], insertTypesEntry: true, tsconfigPath: './tsconfig.app.json' })],
+  plugins: [react(), tailwindcss(), dts({ include: ['src'], insertTypesEntry: true, tsconfigPath: './tsconfig.app.json' })],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -33,12 +32,21 @@ export default defineConfig({
         /^radix-ui/,
         /^@radix-ui/,
         'tailwindcss',
+        'recharts',
+        '@tanstack/react-table',
+        'embla-carousel-react',
+        'react-day-picker',
+        'vaul',
+        'cmdk',
+        'input-otp',
+        'react-resizable-panels',
       ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        assetFileNames: 'style[extname]',
       },
     },
     sourcemap: true,
