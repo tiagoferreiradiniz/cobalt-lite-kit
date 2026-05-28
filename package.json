@@ -1,5 +1,5 @@
 {
-  "name": "@teamviewer/cobalt-lite-kit",
+  "name": "@cobalt-kits/cobalt-lite-kit",
   "version": "0.2.2",
   "description": "A UI component library built on shadcn",
   "type": "module",
