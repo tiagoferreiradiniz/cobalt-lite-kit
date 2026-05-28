@@ -11,7 +11,12 @@ import { playwright } from '@vitest/browser-playwright'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), dts({ include: ['src'], insertTypesEntry: true, tsconfigPath: './tsconfig.app.json' })],
+  plugins: [react(), tailwindcss(), dts({
+    include: ['src/components', 'src/hooks', 'src/lib', 'src/index.ts'],
+    exclude: ['src/stories', 'src/App.tsx', 'src/main.tsx'],
+    insertTypesEntry: true,
+    tsconfigPath: './tsconfig.app.json',
+  })],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
