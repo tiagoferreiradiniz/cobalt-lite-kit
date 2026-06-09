@@ -2,6 +2,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import {
   PrimaryNavigation,
+  PrimaryNavigationCollapseIndicator,
   PrimaryNavigationContent,
   PrimaryNavigationFooter,
   PrimaryNavigationGroup,
@@ -38,8 +39,9 @@ function NavShell({ defaultActive = 'remote-support' }: { defaultActive?: string
 
   return (
     <PrimaryNavigationProvider className="min-h-[500px]">
-      <PrimaryNavigation>
-        <PrimaryNavigationHeader className="p-4">
+      <PrimaryNavigation collapsible="icon">
+        <PrimaryNavigationCollapseIndicator />
+        <PrimaryNavigationHeader className="p-4 group-data-[collapsible=icon]:p-2">
           <TeamViewerLogo />
         </PrimaryNavigationHeader>
         <PrimaryNavigationSeparator />

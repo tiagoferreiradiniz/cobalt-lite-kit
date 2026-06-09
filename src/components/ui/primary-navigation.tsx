@@ -18,15 +18,18 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { PanelLeftIcon } from "lucide-react"
+import { ChevronLeftIcon } from "@/components/ui/icons/chevron-left-icon"
+import { ChevronRightIcon } from "@/components/ui/icons/chevron-right-icon"
 
 const PRIMARY_NAVIGATION_COOKIE_NAME = "sidebar_state"
 const PRIMARY_NAVIGATION_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const PRIMARY_NAVIGATION_WIDTH = "17.5rem"
 const PRIMARY_NAVIGATION_WIDTH_MOBILE = "18rem"
-const PRIMARY_NAVIGATION_WIDTH_ICON = "3rem"
+const PRIMARY_NAVIGATION_WIDTH_ICON = "3.5rem"
 const PRIMARY_NAVIGATION_KEYBOARD_SHORTCUT = "b"
 
 type PrimaryNavigationContextProps = {
@@ -262,6 +265,59 @@ function PrimaryNavigationTrigger({
   )
 }
 
+function PrimaryNavigationCollapseIndicator({
+  className,
+  onClick,
+  ...props
+}: React.ComponentProps<"button">) {
+  const { togglePrimaryNavigation, state, isMobile } = usePrimaryNavigation()
+
+  if (isMobile) return null
+
+  const isExpanded = state === "expanded"
+  const label = isExpanded ? "Collapse" : "Expand"
+
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <button
+            type="button"
+            data-sidebar="collapse-indicator"
+            data-slot="sidebar-collapse-indicator"
+            aria-label={label}
+            onClick={(event) => {
+              onClick?.(event)
+              togglePrimaryNavigation()
+            }}
+            className={cn(
+              "absolute top-[45px] z-20 hidden size-6 items-center justify-center rounded-[4px] md:flex",
+              "bg-sidebar text-sidebar-foreground transition-transform duration-150 ease-out",
+              "hover:bg-sidebar-primary hover:text-sidebar-primary-foreground",
+              "focus-visible:ring-2 focus-visible:ring-sidebar-ring outline-hidden",
+              "group-data-[side=left]:-right-[5px] group-data-[side=left]:hover:translate-x-1",
+              "group-data-[side=right]:-left-[5px] group-data-[side=right]:hover:-translate-x-1",
+              "group-data-[collapsible=offcanvas]:hidden",
+              "[&_svg]:size-5 [&_svg]:shrink-0",
+              className
+            )}
+            {...props}
+          >
+            {isExpanded ? (
+              <ChevronLeftIcon className="group-data-[side=right]:rotate-180" />
+            ) : (
+              <ChevronRightIcon className="group-data-[side=right]:rotate-180" />
+            )}
+          </button>
+        </TooltipTrigger>
+        <TooltipContent side="right" sideOffset={4}>
+          {label}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  )
+}
+
 function PrimaryNavigationRail({ className, ...props }: React.ComponentProps<"button">) {
   const { togglePrimaryNavigation } = usePrimaryNavigation()
 
@@ -452,7 +508,7 @@ function PrimaryNavigationMenuItem({ className, ...props }: React.ComponentProps
 }
 
 const primaryNavigationMenuButtonVariants = cva(
-  "peer/menu-button group/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2.5 text-left text-sm ring-sidebar-ring outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! hover:bg-sidebar-accent-hover hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent-hover active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-open:hover:bg-sidebar-accent-hover data-open:hover:text-sidebar-accent-foreground data-active:bg-sidebar-primary data-active:font-medium data-active:text-sidebar-primary-foreground [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate",
+  "peer/menu-button group/menu-button flex w-full items-center gap-2 overflow-hidden rounded-lg p-2.5 text-left text-sm ring-sidebar-ring outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:p-2.5! hover:bg-sidebar-accent-hover hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent-hover active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-open:hover:bg-sidebar-accent-hover data-open:hover:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:font-medium data-active:text-sidebar-primary-foreground [&_svg]:size-5 [&_svg]:shrink-0 [&>span:last-child]:truncate",
   {
     variants: {
       variant: {
@@ -652,6 +708,7 @@ function PrimaryNavigationMenuSubButton({
 
 export {
   PrimaryNavigation,
+  PrimaryNavigationCollapseIndicator,
   PrimaryNavigationContent,
   PrimaryNavigationFooter,
   PrimaryNavigationGroup,

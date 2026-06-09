@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# @cobalt-kits/cobalt-lite-kit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A shadcn-based React component library packaged as a [Figma Make](https://www.figma.com/make/) kit. Built on Radix UI, Base UI, and Tailwind CSS v4.
 
-Currently, two official plugins are available:
+## Install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The package is published to a private Figma npm registry. Configure your scope in `.npmrc`:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+@cobalt-kits:registry=https://registry.figma.com/npm/8492c267-bee7-4d8c-a2fb-e03c534a2c33/registry/
+//registry.figma.com/npm/8492c267-bee7-4d8c-a2fb-e03c534a2c33/registry/:_authToken=<your-token>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then install:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm install @cobalt-kits/cobalt-lite-kit
 ```
+
+### Peer dependencies
+
+You must install `react` and `react-dom` (18 or 19) in the consuming app. The kit also expects the following runtime dependencies to be resolvable — in Figma Make these are provided by the runtime; in a custom host install them alongside:
+
+`@base-ui/react`, `@tanstack/react-table`, `cmdk`, `date-fns`, `embla-carousel-react`, `input-otp`, `lucide-react`, `radix-ui`, `react-day-picker`, `react-resizable-panels`, `recharts`, `sonner`, `vaul`.
+
+## Usage
+
+```tsx
+import "@cobalt-kits/cobalt-lite-kit/styles";
+import { Button, Card, CardContent } from "@cobalt-kits/cobalt-lite-kit";
+
+export function Example() {
+  return (
+    <Card>
+      <CardContent>
+        <Button>Click me</Button>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+The styles import registers the Tailwind v4 theme and all token CSS variables. Import it once, at your app's entry.
+
+### Dark mode
+
+The kit uses class-based dark mode (`@custom-variant dark (&:is(.dark *))`). Toggle the `.dark` class on a parent (typically `<html>` or `<body>`) — `next-themes` works out of the box.
+
+## What's inside
+
+65 components in `src/components/ui/`, re-exported from the package root. Coverage mirrors shadcn with the `radix-nova` style preset, plus a few additions:
+
+- **Form & inputs:** `Button`, `Input`, `Textarea`, `Checkbox`, `RadioGroup`, `Select`, `NativeSelect`, `Combobox`, `Switch`, `Slider`, `InputOTP`, `Label`, `Field`, `InputGroup`, `ButtonGroup`
+- **Overlays:** `Dialog`, `AlertDialog`, `Drawer`, `Sheet`, `Popover`, `HoverCard`, `Tooltip`, `ContextMenu`, `DropdownMenu`, `Menubar`, `Command`
+- **Navigation:** `NavigationMenu`, `Breadcrumb`, `Pagination`, `Tabs`, `PrimaryNavigation`, `SecondaryNavigation`, `TopBar`, `Toolbar`
+- **Data display:** `Table`, `DataTable`, `Card`, `Avatar`, `Badge`, `Chart`, `Calendar`, `DatePicker`, `Accordion`, `Carousel`, `Progress`, `Skeleton`, `Spinner`, `Alert`, `Empty`, `Item`, `Kbd`, `Typography`, `StatusBar`, `PageHeader`
+- **Layout:** `ScrollArea`, `Separator`, `Resizable`, `AspectRatio`, `Collapsible`, `Toggle`, `ToggleGroup`, `Direction`
+- **Utilities:** `cn` (clsx + tailwind-merge), `useIsMobile` hook, `Toaster` (sonner)
+
+## Local development
+
+```sh
+npm install
+npm run storybook   # Storybook on http://localhost:6006
+npm run build       # tsc + vite library build → dist/
+npm run lint
+```
+
+Stories live in `src/stories/` (one per component) and run against the Storybook a11y, docs, and vitest browser-test addons.
+
+## Publishing
+
+```sh
+npm version patch    # or minor / major
+npm publish          # runs prepublishOnly → build → publish to Figma registry
+```
+
+The build emits ESM + CJS bundles, a single `dist/style.css`, and TypeScript types. Peer/runtime deps are externalized in `vite.config.ts` to keep the bundle compatible with the Figma Make runtime.
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md).
