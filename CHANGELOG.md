@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.3.2] - 2026-06-09
+
+### Fixed
+- `PrimaryNavigationMenuButton`'s tooltip path now wraps its `Tooltip` in a `TooltipProvider`, fixing the runtime error "`Tooltip` must be used within `TooltipProvider`" when a menu button is rendered with the `tooltip` prop. Mirrors the same fix already shipped in `PrimaryNavigationCollapseIndicator` in 0.3.0
+
 ## [0.3.1] - 2026-06-09
 
 ### Changed
