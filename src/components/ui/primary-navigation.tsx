@@ -7,13 +7,6 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Tooltip,
@@ -28,7 +21,6 @@ import { ChevronRightIcon } from "@/components/ui/icons/chevron-right-icon"
 const PRIMARY_NAVIGATION_COOKIE_NAME = "sidebar_state"
 const PRIMARY_NAVIGATION_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const PRIMARY_NAVIGATION_WIDTH = "17.5rem"
-const PRIMARY_NAVIGATION_WIDTH_MOBILE = "18rem"
 const PRIMARY_NAVIGATION_WIDTH_ICON = "3.5rem"
 const PRIMARY_NAVIGATION_KEYBOARD_SHORTCUT = "b"
 
@@ -152,7 +144,7 @@ function PrimaryNavigation({
   variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
 }) {
-  const { isMobile, state, openMobile, setOpenMobile } = usePrimaryNavigation()
+  const { state } = usePrimaryNavigation()
 
   if (collapsible === "none") {
     return (
@@ -169,35 +161,9 @@ function PrimaryNavigation({
     )
   }
 
-  if (isMobile) {
-    return (
-      <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-        <SheetContent
-          dir={dir}
-          data-sidebar="sidebar"
-          data-slot="sidebar"
-          data-mobile="true"
-          className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
-          style={
-            {
-              "--sidebar-width": PRIMARY_NAVIGATION_WIDTH_MOBILE,
-            } as React.CSSProperties
-          }
-          side={side}
-        >
-          <SheetHeader className="sr-only">
-            <SheetTitle>Primary Navigation</SheetTitle>
-            <SheetDescription>Displays the mobile primary navigation.</SheetDescription>
-          </SheetHeader>
-          <div className="flex h-full w-full flex-col">{children}</div>
-        </SheetContent>
-      </Sheet>
-    )
-  }
-
   return (
     <div
-      className="group peer hidden text-sidebar-foreground md:block"
+      className="group peer text-sidebar-foreground"
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
@@ -219,7 +185,7 @@ function PrimaryNavigation({
         data-slot="sidebar-container"
         data-side={side}
         className={cn(
-          "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear data-[side=left]:left-0 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:right-0 data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)] md:flex",
+          "fixed inset-y-0 z-10 flex h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear data-[side=left]:left-0 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:right-0 data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
           variant === "floating" || variant === "inset"
             ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
             : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
@@ -270,9 +236,7 @@ function PrimaryNavigationCollapseIndicator({
   onClick,
   ...props
 }: React.ComponentProps<"button">) {
-  const { togglePrimaryNavigation, state, isMobile } = usePrimaryNavigation()
-
-  if (isMobile) return null
+  const { togglePrimaryNavigation, state } = usePrimaryNavigation()
 
   const isExpanded = state === "expanded"
   const label = isExpanded ? "Collapse" : "Expand"
@@ -291,7 +255,7 @@ function PrimaryNavigationCollapseIndicator({
               togglePrimaryNavigation()
             }}
             className={cn(
-              "absolute top-[45px] z-20 hidden size-6 items-center justify-center rounded-[4px] md:flex",
+              "absolute top-[45px] z-20 flex size-6 items-center justify-center rounded-[4px]",
               "bg-sidebar text-sidebar-foreground transition-transform duration-150 ease-out",
               "hover:bg-sidebar-primary hover:text-sidebar-primary-foreground",
               "focus-visible:ring-2 focus-visible:ring-sidebar-ring outline-hidden",
@@ -543,7 +507,7 @@ function PrimaryNavigationMenuButton({
   tooltip?: string | React.ComponentProps<typeof TooltipContent>
 } & VariantProps<typeof primaryNavigationMenuButtonVariants>) {
   const Comp = asChild ? Slot.Root : "button"
-  const { isMobile, state } = usePrimaryNavigation()
+  const { state } = usePrimaryNavigation()
 
   const button = (
     <Comp
@@ -570,7 +534,7 @@ function PrimaryNavigationMenuButton({
       <TooltipContent
         side="right"
         align="center"
-        hidden={state !== "collapsed" || isMobile}
+        hidden={state !== "collapsed"}
         {...tooltip}
       />
     </Tooltip>

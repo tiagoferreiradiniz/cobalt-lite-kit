@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.1] - 2026-06-09
+
+### Changed
+- `PrimaryNavigation` now renders inline at all viewport sizes. Removed the `<Sheet>` off-canvas branch and the `hidden md:block` / `hidden md:flex` viewport gates that were blanking the component below 768px (notably in Figma Make previews)
+- `PrimaryNavigationCollapseIndicator` no longer returns `null` on mobile and no longer carries `hidden md:flex`
+- `PrimaryNavigationMenuButton` tooltip is no longer suppressed on small viewports — it now shows whenever the nav is collapsed, regardless of width
+
+### Removed
+- Unused `Sheet`/`SheetContent`/`SheetHeader`/`SheetTitle`/`SheetDescription` imports and the `PRIMARY_NAVIGATION_WIDTH_MOBILE` constant from `primary-navigation.tsx`
+
 ## [0.3.0] - 2026-06-09
 
 ### Added
