@@ -3,6 +3,20 @@ import { ScrollArea as ScrollAreaPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+ *   <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+ *   {tags.map((tag) => (
+ *     <div key={tag}>
+ *       <div className="text-sm">{tag}</div>
+ *       <Separator className="my-2" />
+ *     </div>
+ *   ))}
+ * </ScrollArea>
+ * ```
+ */
 function ScrollArea({
   className,
   children,

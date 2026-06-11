@@ -37,6 +37,17 @@ export interface DataTableProps<TData, TValue> {
   filterPlaceholder?: string
 }
 
+/**
+ * @example
+ * ```tsx
+ * <DataTable
+ *   columns={columns}
+ *   data={data}
+ *   filterColumn="email"
+ *   filterPlaceholder="Filter emails…"
+ * />
+ * ```
+ */
 export function DataTable<TData, TValue>({
   columns,
   data,

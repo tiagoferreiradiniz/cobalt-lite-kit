@@ -4,6 +4,20 @@ import * as ResizablePrimitive from "react-resizable-panels"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <ResizablePanelGroup direction="horizontal" className="min-h-[200px] w-[500px] rounded-lg border">
+ *   <ResizablePanel defaultSize={50}>
+ *     <div className="flex h-full items-center justify-center p-6 text-sm">Panel One</div>
+ *   </ResizablePanel>
+ *   <ResizableHandle />
+ *   <ResizablePanel defaultSize={50}>
+ *     <div className="flex h-full items-center justify-center p-6 text-sm">Panel Two</div>
+ *   </ResizablePanel>
+ * </ResizablePanelGroup>
+ * ```
+ */
 function ResizablePanelGroup({
   className,
   ...props

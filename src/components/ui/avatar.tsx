@@ -3,6 +3,15 @@ import { Avatar as AvatarPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Avatar>
+ *   <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
+ *   <AvatarFallback>SC</AvatarFallback>
+ * </Avatar>
+ * ```
+ */
 function Avatar({
   className,
   size = "default",

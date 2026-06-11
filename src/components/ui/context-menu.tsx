@@ -4,6 +4,36 @@ import { ContextMenu as ContextMenuPrimitive } from "radix-ui"
 import { cn } from "@/lib/utils"
 import { ChevronRightIcon, CheckIcon } from "lucide-react"
 
+/**
+ * @example
+ * ```tsx
+ * <ContextMenu>
+ *   <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+ *     Right-click here
+ *   </ContextMenuTrigger>
+ *   <ContextMenuContent className="w-64">
+ *     <ContextMenuItem inset>Back<ContextMenuShortcut>⌘[</ContextMenuShortcut></ContextMenuItem>
+ *     <ContextMenuItem inset disabled>Forward<ContextMenuShortcut>⌘]</ContextMenuShortcut></ContextMenuItem>
+ *     <ContextMenuItem inset>Reload<ContextMenuShortcut>⌘R</ContextMenuShortcut></ContextMenuItem>
+ *     <ContextMenuSub>
+ *       <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
+ *       <ContextMenuSubContent className="w-48">
+ *         <ContextMenuItem>Save Page As…<ContextMenuShortcut>⇧⌘S</ContextMenuShortcut></ContextMenuItem>
+ *         <ContextMenuItem>Create Shortcut…</ContextMenuItem>
+ *       </ContextMenuSubContent>
+ *     </ContextMenuSub>
+ *     <ContextMenuSeparator />
+ *     <ContextMenuCheckboxItem checked>Show Bookmarks Bar<ContextMenuShortcut>⌘⇧B</ContextMenuShortcut></ContextMenuCheckboxItem>
+ *     <ContextMenuSeparator />
+ *     <ContextMenuRadioGroup value="pedro">
+ *       <ContextMenuLabel inset>People</ContextMenuLabel>
+ *       <ContextMenuRadioItem value="pedro">Pedro Duarte</ContextMenuRadioItem>
+ *       <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
+ *     </ContextMenuRadioGroup>
+ *   </ContextMenuContent>
+ * </ContextMenu>
+ * ```
+ */
 function ContextMenu({
   ...props
 }: React.ComponentProps<typeof ContextMenuPrimitive.Root>) {

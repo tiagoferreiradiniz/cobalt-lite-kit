@@ -2,6 +2,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Empty className="w-[400px]">
+ *   <EmptyHeader>
+ *     <EmptyMedia><Inbox className="h-10 w-10 text-muted-foreground" /></EmptyMedia>
+ *     <EmptyTitle>No messages</EmptyTitle>
+ *     <EmptyDescription>Your inbox is empty. Start a conversation to see messages here.</EmptyDescription>
+ *   </EmptyHeader>
+ *   <EmptyContent>
+ *     <Button>New message</Button>
+ *   </EmptyContent>
+ * </Empty>
+ * ```
+ */
 function Empty({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

@@ -5,6 +5,43 @@ import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
 import { cn } from "@/lib/utils"
 import { ChevronDownIcon } from "lucide-react"
 
+/**
+ * @example
+ * ```tsx
+ * <NavigationMenu>
+ *   <NavigationMenuList>
+ *     <NavigationMenuItem>
+ *       <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+ *       <NavigationMenuContent>
+ *         <ul className="grid gap-3 p-6 w-[400px]">
+ *           <li className="row-span-3">
+ *             <NavigationMenuLink asChild>
+ *               <a href="#" className="flex h-full w-full flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+ *                 <div className="mb-2 mt-4 text-lg font-medium">cobalt-lite-kit</div>
+ *                 <p className="text-sm leading-tight text-muted-foreground">A UI library built on shadcn.</p>
+ *               </a>
+ *             </NavigationMenuLink>
+ *           </li>
+ *           <li>
+ *             <NavigationMenuLink asChild>
+ *               <a href="#" className="block rounded p-2 hover:bg-accent text-sm font-medium">Introduction</a>
+ *             </NavigationMenuLink>
+ *           </li>
+ *           <li>
+ *             <NavigationMenuLink asChild>
+ *               <a href="#" className="block rounded p-2 hover:bg-accent text-sm font-medium">Installation</a>
+ *             </NavigationMenuLink>
+ *           </li>
+ *         </ul>
+ *       </NavigationMenuContent>
+ *     </NavigationMenuItem>
+ *     <NavigationMenuItem>
+ *       <NavigationMenuLink className={navigationMenuTriggerStyle()} href="#">Docs</NavigationMenuLink>
+ *     </NavigationMenuItem>
+ *   </NavigationMenuList>
+ * </NavigationMenu>
+ * ```
+ */
 function NavigationMenu({
   className,
   children,

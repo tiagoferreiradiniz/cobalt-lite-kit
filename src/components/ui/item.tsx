@@ -55,6 +55,26 @@ const itemVariants = cva(
   }
 )
 
+/**
+ * @example
+ * ```tsx
+ * <Item className="w-[350px]">
+ *   <ItemMedia>
+ *     <Avatar>
+ *       <AvatarImage src="https://github.com/shadcn.png" />
+ *       <AvatarFallback>SC</AvatarFallback>
+ *     </Avatar>
+ *   </ItemMedia>
+ *   <ItemContent>
+ *     <ItemTitle>shadcn</ItemTitle>
+ *     <ItemDescription>UI component library</ItemDescription>
+ *   </ItemContent>
+ *   <ItemActions>
+ *     <ChevronRight className="h-4 w-4 text-muted-foreground" />
+ *   </ItemActions>
+ * </Item>
+ * ```
+ */
 function Item({
   className,
   variant = "default",

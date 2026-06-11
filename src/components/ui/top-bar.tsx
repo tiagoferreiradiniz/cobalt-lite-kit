@@ -29,6 +29,17 @@ export type TopBarProps = {
   className?: string
 }
 
+/**
+ * @example
+ * ```tsx
+ * <TopBar
+ *   title="Connections"
+ *   avatarSrc="https://github.com/shadcn.png"
+ *   avatarFallback="SC"
+ *   isOnline
+ * />
+ * ```
+ */
 function TopBar({
   title = "Module title",
   onBack,

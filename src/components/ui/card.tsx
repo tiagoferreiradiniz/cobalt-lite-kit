@@ -2,6 +2,24 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Card className="w-[350px]">
+ *   <CardHeader>
+ *     <CardTitle>Card Title</CardTitle>
+ *     <CardDescription>Card description goes here.</CardDescription>
+ *   </CardHeader>
+ *   <CardContent>
+ *     <p className="text-sm text-muted-foreground">Card content area for any content.</p>
+ *   </CardContent>
+ *   <CardFooter className="flex justify-between">
+ *     <Button variant="outline">Cancel</Button>
+ *     <Button>Confirm</Button>
+ *   </CardFooter>
+ * </Card>
+ * ```
+ */
 function Card({
   className,
   size = "default",

@@ -131,6 +131,49 @@ function PrimaryNavigationProvider({
   )
 }
 
+/**
+ * @example
+ * ```tsx
+ * <PrimaryNavigationProvider className="min-h-[500px]">
+ *   <PrimaryNavigation collapsible="icon">
+ *     <PrimaryNavigationCollapseIndicator />
+ *     <PrimaryNavigationHeader className="p-4 group-data-[collapsible=icon]:p-2">
+ *       <Logo />
+ *     </PrimaryNavigationHeader>
+ *     <PrimaryNavigationSeparator />
+ *     <PrimaryNavigationContent>
+ *       <PrimaryNavigationGroup className="pt-3">
+ *         <PrimaryNavigationGroupContent>
+ *           <PrimaryNavigationMenu>
+ *             <PrimaryNavigationMenuItem>
+ *               <PrimaryNavigationMenuButton asChild isActive>
+ *                 <a href="#"><HomeIcon className="h-4 w-4" /><span>Home</span></a>
+ *               </PrimaryNavigationMenuButton>
+ *             </PrimaryNavigationMenuItem>
+ *           </PrimaryNavigationMenu>
+ *         </PrimaryNavigationGroupContent>
+ *       </PrimaryNavigationGroup>
+ *     </PrimaryNavigationContent>
+ *     <PrimaryNavigationFooter className="pb-4">
+ *       <PrimaryNavigationGroup className="p-0">
+ *         <PrimaryNavigationGroupContent>
+ *           <PrimaryNavigationMenu>
+ *             <PrimaryNavigationMenuItem>
+ *               <PrimaryNavigationMenuButton asChild>
+ *                 <a href="#"><SettingsIcon className="h-4 w-4" /><span>Settings</span></a>
+ *               </PrimaryNavigationMenuButton>
+ *             </PrimaryNavigationMenuItem>
+ *           </PrimaryNavigationMenu>
+ *         </PrimaryNavigationGroupContent>
+ *       </PrimaryNavigationGroup>
+ *     </PrimaryNavigationFooter>
+ *   </PrimaryNavigation>
+ *   <main className="flex-1 p-6">
+ *     <PrimaryNavigationTrigger className="mb-4" />
+ *   </main>
+ * </PrimaryNavigationProvider>
+ * ```
+ */
 function PrimaryNavigation({
   side = "left",
   variant = "sidebar",

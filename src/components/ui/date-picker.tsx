@@ -8,6 +8,12 @@ import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
+/**
+ * @example
+ * ```tsx
+ * <DatePicker value={date} onChange={setDate} />
+ * ```
+ */
 export function DatePicker({
   value,
   onChange,

@@ -6,6 +6,38 @@ import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui"
 import { cn } from "@/lib/utils"
 import { CheckIcon, ChevronRightIcon } from "lucide-react"
 
+/**
+ * @example
+ * ```tsx
+ * <DropdownMenu>
+ *   <DropdownMenuTrigger asChild>
+ *     <Button variant="outline">Open Menu</Button>
+ *   </DropdownMenuTrigger>
+ *   <DropdownMenuContent className="w-56">
+ *     <DropdownMenuLabel>My Account</DropdownMenuLabel>
+ *     <DropdownMenuSeparator />
+ *     <DropdownMenuGroup>
+ *       <DropdownMenuItem><User className="mr-2 h-4 w-4" />Profile<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut></DropdownMenuItem>
+ *       <DropdownMenuItem><CreditCard className="mr-2 h-4 w-4" />Billing<DropdownMenuShortcut>⌘B</DropdownMenuShortcut></DropdownMenuItem>
+ *       <DropdownMenuItem><Settings className="mr-2 h-4 w-4" />Settings<DropdownMenuShortcut>⌘S</DropdownMenuShortcut></DropdownMenuItem>
+ *     </DropdownMenuGroup>
+ *     <DropdownMenuSeparator />
+ *     <DropdownMenuGroup>
+ *       <DropdownMenuSub>
+ *         <DropdownMenuSubTrigger><Users className="mr-2 h-4 w-4" />Invite users</DropdownMenuSubTrigger>
+ *         <DropdownMenuPortal>
+ *           <DropdownMenuSubContent>
+ *             <DropdownMenuItem><PlusCircle className="mr-2 h-4 w-4" />New user</DropdownMenuItem>
+ *           </DropdownMenuSubContent>
+ *         </DropdownMenuPortal>
+ *       </DropdownMenuSub>
+ *     </DropdownMenuGroup>
+ *     <DropdownMenuSeparator />
+ *     <DropdownMenuItem className="text-destructive"><LogOut className="mr-2 h-4 w-4" />Log out<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut></DropdownMenuItem>
+ *   </DropdownMenuContent>
+ * </DropdownMenu>
+ * ```
+ */
 function DropdownMenu({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {

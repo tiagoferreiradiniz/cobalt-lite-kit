@@ -27,6 +27,12 @@ const badgeVariants = cva(
   }
 )
 
+/**
+ * @example
+ * ```tsx
+ * <Badge>Badge</Badge>
+ * ```
+ */
 function Badge({
   className,
   variant = "default",

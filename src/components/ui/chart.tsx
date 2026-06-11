@@ -39,6 +39,20 @@ function useChart() {
   return context
 }
 
+/**
+ * @example
+ * ```tsx
+ * <ChartContainer config={chartConfig} className="min-h-[200px] w-[500px]">
+ *   <BarChart data={data}>
+ *     <CartesianGrid vertical={false} />
+ *     <XAxis dataKey="month" tickLine={false} axisLine={false} />
+ *     <ChartTooltip content={<ChartTooltipContent />} />
+ *     <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+ *     <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+ *   </BarChart>
+ * </ChartContainer>
+ * ```
+ */
 function ChartContainer({
   id,
   className,

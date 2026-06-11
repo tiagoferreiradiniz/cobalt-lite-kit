@@ -5,6 +5,15 @@ import { Switch as SwitchPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <div className="flex items-center gap-2">
+ *   <Switch id="airplane" />
+ *   <Label htmlFor="airplane">Airplane Mode</Label>
+ * </div>
+ * ```
+ */
 function Switch({
   className,
   size = "default",

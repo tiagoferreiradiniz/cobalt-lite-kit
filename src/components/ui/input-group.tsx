@@ -6,6 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
+/**
+ * @example
+ * ```tsx
+ * <InputGroup className="w-[300px]">
+ *   <InputGroupAddon>
+ *     <InputGroupText>https://</InputGroupText>
+ *   </InputGroupAddon>
+ *   <InputGroupInput placeholder="example.com" />
+ * </InputGroup>
+ * ```
+ */
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

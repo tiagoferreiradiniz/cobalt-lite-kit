@@ -22,6 +22,18 @@ export type ToolbarProps = {
   className?: string
 }
 
+/**
+ * @example
+ * ```tsx
+ * <Toolbar
+ *   pivots={[
+ *     { label: 'All', icon: <Star className="size-5" />, isActive: true },
+ *     { label: 'Favorites', icon: <Heart className="size-5" /> },
+ *     { label: 'Members', icon: <Users className="size-5" /> },
+ *   ]}
+ * />
+ * ```
+ */
 function Toolbar({
   pivots = [],
   searchPlaceholder = "Search",

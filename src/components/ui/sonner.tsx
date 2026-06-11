@@ -16,6 +16,33 @@ function useDarkMode() {
   return dark ? "dark" : "light"
 }
 
+/**
+ * @example
+ * ```tsx
+ * <div>
+ *   <Toaster />
+ *   <div className="flex flex-wrap gap-2">
+ *     <Button variant="outline" onClick={() => toast('Event has been created.')}>Default</Button>
+ *     <Button variant="outline" onClick={() => toast.success('Profile updated successfully!')}>Success</Button>
+ *     <Button variant="outline" onClick={() => toast.error('Something went wrong.')}>Error</Button>
+ *     <Button variant="outline" onClick={() => toast.warning('Low disk space.')}>Warning</Button>
+ *     <Button variant="outline" onClick={() => toast.info('New version available.')}>Info</Button>
+ *     <Button variant="outline" onClick={() => toast.loading('Uploading file…')}>Loading</Button>
+ *     <Button
+ *       variant="outline"
+ *       onClick={() =>
+ *         toast('File uploaded', {
+ *           description: 'Monday, January 3rd at 6:00pm',
+ *           action: { label: 'Undo', onClick: () => console.log('Undo') },
+ *         })
+ *       }
+ *     >
+ *       With action
+ *     </Button>
+ *   </div>
+ * </div>
+ * ```
+ */
 const Toaster = ({ ...props }: ToasterProps) => {
   const theme = useDarkMode()
 

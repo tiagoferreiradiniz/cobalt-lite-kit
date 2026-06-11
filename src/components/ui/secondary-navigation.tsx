@@ -23,6 +23,34 @@ export interface SecondaryNavigationProps extends React.HTMLAttributes<HTMLDivEl
   onItemClick?: (itemId: string) => void
 }
 
+/**
+ * @example
+ * ```tsx
+ * <SecondaryNavigation
+ *   sections={[
+ *     {
+ *       id: 'company',
+ *       title: 'Company',
+ *       items: [
+ *         { id: 'general', label: 'General', icon: <Settings /> },
+ *         { id: 'organization', label: 'Organization', icon: <Building /> },
+ *         { id: 'integrations', label: 'Integrations', icon: <Plug /> },
+ *       ],
+ *     },
+ *     {
+ *       id: 'users',
+ *       title: 'Users',
+ *       items: [
+ *         { id: 'users', label: 'Users', icon: <Users /> },
+ *         { id: 'roles', label: 'Roles', icon: <Shield /> },
+ *       ],
+ *     },
+ *   ]}
+ *   activeItemId="general"
+ *   onItemClick={(id) => console.log(id)}
+ * />
+ * ```
+ */
 function SecondaryNavigation({
   sections,
   activeItemId,

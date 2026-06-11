@@ -1,5 +1,11 @@
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Kbd>⌘K</Kbd>
+ * ```
+ */
 function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   return (
     <kbd

@@ -22,6 +22,12 @@ const statusDotColor: Record<NonNullable<StatusBarProps["status"]>, string> = {
   away: "#f59e0b",
 }
 
+/**
+ * @example
+ * ```tsx
+ * <StatusBar />
+ * ```
+ */
 function StatusBar({
   status = "online",
   statusText = "Ready to connect (secure connection).",

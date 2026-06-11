@@ -69,6 +69,20 @@ const fieldVariants = cva(
   }
 )
 
+/**
+ * @example
+ * ```tsx
+ * <Field>
+ *   <FieldLabel htmlFor="f-email">
+ *     <FieldTitle>Email address</FieldTitle>
+ *     <FieldDescription>We'll never share your email.</FieldDescription>
+ *   </FieldLabel>
+ *   <FieldContent>
+ *     <Input id="f-email" type="email" placeholder="m@example.com" />
+ *   </FieldContent>
+ * </Field>
+ * ```
+ */
 function Field({
   className,
   orientation = "vertical",

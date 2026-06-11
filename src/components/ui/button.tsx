@@ -41,6 +41,12 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * @example
+ * ```tsx
+ * <Button>Button</Button>
+ * ```
+ */
 function Button({
   className,
   variant = "default",

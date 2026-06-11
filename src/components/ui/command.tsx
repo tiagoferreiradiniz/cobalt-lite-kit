@@ -15,6 +15,28 @@ import {
 } from "@/components/ui/input-group"
 import { SearchIcon, CheckIcon } from "lucide-react"
 
+/**
+ * @example
+ * ```tsx
+ * <Command className="rounded-lg border shadow-md w-[400px]">
+ *   <CommandInput placeholder="Type a command or search…" />
+ *   <CommandList>
+ *     <CommandEmpty>No results found.</CommandEmpty>
+ *     <CommandGroup heading="Suggestions">
+ *       <CommandItem><Calendar className="mr-2 h-4 w-4" />Calendar</CommandItem>
+ *       <CommandItem><Smile className="mr-2 h-4 w-4" />Search Emoji</CommandItem>
+ *       <CommandItem><Calculator className="mr-2 h-4 w-4" />Calculator</CommandItem>
+ *     </CommandGroup>
+ *     <CommandSeparator />
+ *     <CommandGroup heading="Settings">
+ *       <CommandItem><User className="mr-2 h-4 w-4" />Profile<CommandShortcut>⌘P</CommandShortcut></CommandItem>
+ *       <CommandItem><CreditCard className="mr-2 h-4 w-4" />Billing<CommandShortcut>⌘B</CommandShortcut></CommandItem>
+ *       <CommandItem><Settings className="mr-2 h-4 w-4" />Settings<CommandShortcut>⌘S</CommandShortcut></CommandItem>
+ *     </CommandGroup>
+ *   </CommandList>
+ * </Command>
+ * ```
+ */
 function Command({
   className,
   ...props

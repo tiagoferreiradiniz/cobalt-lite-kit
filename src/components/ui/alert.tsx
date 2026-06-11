@@ -19,6 +19,16 @@ const alertVariants = cva(
   }
 )
 
+/**
+ * @example
+ * ```tsx
+ * <Alert>
+ *   <Terminal className="h-4 w-4" />
+ *   <AlertTitle>Heads up!</AlertTitle>
+ *   <AlertDescription>You can add components using the CLI.</AlertDescription>
+ * </Alert>
+ * ```
+ */
 function Alert({
   className,
   variant,

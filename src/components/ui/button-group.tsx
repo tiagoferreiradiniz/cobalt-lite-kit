@@ -21,6 +21,18 @@ const buttonGroupVariants = cva(
   }
 )
 
+/**
+ * @example
+ * ```tsx
+ * <ButtonGroup>
+ *   <Button variant="outline">One</Button>
+ *   <ButtonGroupSeparator />
+ *   <Button variant="outline">Two</Button>
+ *   <ButtonGroupSeparator />
+ *   <Button variant="outline">Three</Button>
+ * </ButtonGroup>
+ * ```
+ */
 function ButtonGroup({
   className,
   orientation,

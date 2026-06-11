@@ -19,6 +19,22 @@ const ToggleGroupContext = React.createContext<
   orientation: "horizontal",
 })
 
+/**
+ * @example
+ * ```tsx
+ * <ToggleGroup type="single" defaultValue="center">
+ *   <ToggleGroupItem value="left" aria-label="Left">
+ *     <AlignLeft className="h-4 w-4" />
+ *   </ToggleGroupItem>
+ *   <ToggleGroupItem value="center" aria-label="Center">
+ *     <AlignCenter className="h-4 w-4" />
+ *   </ToggleGroupItem>
+ *   <ToggleGroupItem value="right" aria-label="Right">
+ *     <AlignRight className="h-4 w-4" />
+ *   </ToggleGroupItem>
+ * </ToggleGroup>
+ * ```
+ */
 function ToggleGroup({
   className,
   variant,

@@ -18,6 +18,21 @@ function TooltipProvider({
   )
 }
 
+/**
+ * @example
+ * ```tsx
+ * <TooltipProvider>
+ *   <Tooltip>
+ *     <TooltipTrigger asChild>
+ *       <Button variant="outline">Hover me</Button>
+ *     </TooltipTrigger>
+ *     <TooltipContent>
+ *       <p>Add to library</p>
+ *     </TooltipContent>
+ *   </Tooltip>
+ * </TooltipProvider>
+ * ```
+ */
 function Tooltip({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Root>) {

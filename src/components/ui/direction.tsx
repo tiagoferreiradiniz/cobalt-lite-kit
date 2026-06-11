@@ -3,6 +3,17 @@
 import * as React from "react"
 import { Direction } from "radix-ui"
 
+/**
+ * @example
+ * ```tsx
+ * <DirectionProvider dir="ltr">
+ *   <div className="flex gap-2 w-[300px]">
+ *     <Input placeholder="Left-to-right input" />
+ *     <Button variant="outline">Send</Button>
+ *   </div>
+ * </DirectionProvider>
+ * ```
+ */
 function DirectionProvider({
   dir,
   direction,

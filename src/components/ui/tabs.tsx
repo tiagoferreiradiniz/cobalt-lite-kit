@@ -6,6 +6,29 @@ import { Tabs as TabsPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Tabs defaultValue="account" className="w-[400px]">
+ *   <TabsList className="grid w-full grid-cols-2">
+ *     <TabsTrigger value="account">Account</TabsTrigger>
+ *     <TabsTrigger value="password">Password</TabsTrigger>
+ *   </TabsList>
+ *   <TabsContent value="account">
+ *     <Card>
+ *       <CardHeader><CardTitle>Account</CardTitle></CardHeader>
+ *       <CardContent>Make changes to your account here.</CardContent>
+ *     </Card>
+ *   </TabsContent>
+ *   <TabsContent value="password">
+ *     <Card>
+ *       <CardHeader><CardTitle>Password</CardTitle></CardHeader>
+ *       <CardContent>Change your password here.</CardContent>
+ *     </Card>
+ *   </TabsContent>
+ * </Tabs>
+ * ```
+ */
 function Tabs({
   className,
   orientation = "horizontal",

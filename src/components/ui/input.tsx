@@ -2,6 +2,12 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Input type="email" placeholder="m@example.com" />
+ * ```
+ */
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
     <input

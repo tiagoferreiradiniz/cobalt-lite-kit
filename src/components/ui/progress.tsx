@@ -5,6 +5,12 @@ import { Progress as ProgressPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Progress value={60} className="w-[400px]" />
+ * ```
+ */
 function Progress({
   className,
   value,

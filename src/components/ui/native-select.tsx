@@ -7,6 +7,17 @@ type NativeSelectProps = Omit<React.ComponentProps<"select">, "size"> & {
   size?: "sm" | "default"
 }
 
+/**
+ * @example
+ * ```tsx
+ * <NativeSelect className="w-[200px]">
+ *   <option value="">Select a fruit</option>
+ *   <option value="apple">Apple</option>
+ *   <option value="banana">Banana</option>
+ *   <option value="mango">Mango</option>
+ * </NativeSelect>
+ * ```
+ */
 function NativeSelect({
   className,
   size = "default",

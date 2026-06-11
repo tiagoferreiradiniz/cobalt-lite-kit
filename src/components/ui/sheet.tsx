@@ -5,6 +5,37 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { XIcon } from "lucide-react"
 
+/**
+ * @example
+ * ```tsx
+ * <Sheet>
+ *   <SheetTrigger asChild>
+ *     <Button variant="outline">Open Sheet</Button>
+ *   </SheetTrigger>
+ *   <SheetContent>
+ *     <SheetHeader>
+ *       <SheetTitle>Edit profile</SheetTitle>
+ *       <SheetDescription>Make changes to your profile here.</SheetDescription>
+ *     </SheetHeader>
+ *     <div className="grid gap-4 py-4">
+ *       <div className="grid grid-cols-4 items-center gap-4">
+ *         <Label htmlFor="s-name" className="text-right">Name</Label>
+ *         <Input id="s-name" defaultValue="Pedro Duarte" className="col-span-3" />
+ *       </div>
+ *       <div className="grid grid-cols-4 items-center gap-4">
+ *         <Label htmlFor="s-username" className="text-right">Username</Label>
+ *         <Input id="s-username" defaultValue="@peduarte" className="col-span-3" />
+ *       </div>
+ *     </div>
+ *     <SheetFooter>
+ *       <SheetClose asChild>
+ *         <Button type="submit">Save changes</Button>
+ *       </SheetClose>
+ *     </SheetFooter>
+ *   </SheetContent>
+ * </Sheet>
+ * ```
+ */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
 }

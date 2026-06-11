@@ -40,6 +40,31 @@ function useCarousel() {
   return context
 }
 
+/**
+ * @example
+ * ```tsx
+ * <Carousel>
+ *   <CarouselContent>
+ *     <CarouselItem>
+ *       <Card>
+ *         <CardContent className="flex aspect-square items-center justify-center p-6">
+ *           <span className="text-4xl font-semibold">1</span>
+ *         </CardContent>
+ *       </Card>
+ *     </CarouselItem>
+ *     <CarouselItem>
+ *       <Card>
+ *         <CardContent className="flex aspect-square items-center justify-center p-6">
+ *           <span className="text-4xl font-semibold">2</span>
+ *         </CardContent>
+ *       </Card>
+ *     </CarouselItem>
+ *   </CarouselContent>
+ *   <CarouselPrevious />
+ *   <CarouselNext />
+ * </Carousel>
+ * ```
+ */
 function Carousel({
   orientation = "horizontal",
   opts,

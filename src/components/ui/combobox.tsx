@@ -13,6 +13,25 @@ import {
 } from "@/components/ui/input-group"
 import { ChevronDownIcon, XIcon, CheckIcon } from "lucide-react"
 
+/**
+ * @example
+ * ```tsx
+ * <Combobox>
+ *   <ComboboxTrigger className="w-[220px]">
+ *     <ComboboxValue placeholder="Select framework…" />
+ *   </ComboboxTrigger>
+ *   <ComboboxContent>
+ *     <ComboboxInput placeholder="Search frameworks…" />
+ *     <ComboboxList>
+ *       <ComboboxEmpty>No framework found.</ComboboxEmpty>
+ *       <ComboboxItem value="next">Next.js</ComboboxItem>
+ *       <ComboboxItem value="remix">Remix</ComboboxItem>
+ *       <ComboboxItem value="astro">Astro</ComboboxItem>
+ *     </ComboboxList>
+ *   </ComboboxContent>
+ * </Combobox>
+ * ```
+ */
 const Combobox = ComboboxPrimitive.Root
 
 function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {

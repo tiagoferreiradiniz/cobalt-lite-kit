@@ -3,6 +3,25 @@ import { RadioGroup as RadioGroupPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <RadioGroup defaultValue="option-1">
+ *   <div className="flex items-center gap-2">
+ *     <RadioGroupItem value="option-1" id="o1" />
+ *     <Label htmlFor="o1">Option one</Label>
+ *   </div>
+ *   <div className="flex items-center gap-2">
+ *     <RadioGroupItem value="option-2" id="o2" />
+ *     <Label htmlFor="o2">Option two</Label>
+ *   </div>
+ *   <div className="flex items-center gap-2">
+ *     <RadioGroupItem value="option-3" id="o3" />
+ *     <Label htmlFor="o3">Option three</Label>
+ *   </div>
+ * </RadioGroup>
+ * ```
+ */
 function RadioGroup({
   className,
   ...props

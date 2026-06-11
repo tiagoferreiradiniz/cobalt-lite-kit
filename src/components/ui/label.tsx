@@ -3,6 +3,12 @@ import { Label as LabelPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <Label>Email address</Label>
+ * ```
+ */
 function Label({
   className,
   ...props

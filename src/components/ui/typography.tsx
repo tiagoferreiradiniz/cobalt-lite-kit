@@ -1,6 +1,35 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
+/**
+ * @example
+ * ```tsx
+ * <div className="max-w-2xl space-y-6">
+ *   <TypographyH1>The Quick Brown Fox</TypographyH1>
+ *   <TypographyH2>Section Heading</TypographyH2>
+ *   <TypographyH3>Subsection Heading</TypographyH3>
+ *   <TypographyH4>Minor Heading</TypographyH4>
+ *   <TypographyLead>A lead paragraph introduces a section with slightly larger, muted text.</TypographyLead>
+ *   <TypographyP>
+ *     Regular paragraph text. The quick brown fox jumps over the lazy dog.
+ *   </TypographyP>
+ *   <TypographyBlockquote>
+ *     "Design is not just what it looks like and feels like. Design is how it works." — Steve Jobs
+ *   </TypographyBlockquote>
+ *   <TypographyList>
+ *     <li>First list item</li>
+ *     <li>Second list item</li>
+ *     <li>Third list item</li>
+ *   </TypographyList>
+ *   <TypographyP>
+ *     Inline code example: <TypographyInlineCode>npm install cobalt-lite-kit</TypographyInlineCode>
+ *   </TypographyP>
+ *   <TypographyLarge>Large emphasized text</TypographyLarge>
+ *   <TypographySmall>Small secondary text</TypographySmall>
+ *   <TypographyMuted>Muted helper text for captions and hints</TypographyMuted>
+ * </div>
+ * ```
+ */
 export function TypographyH1({
   className,
   children,

@@ -9,6 +9,21 @@ export type PageHeaderProps = {
   className?: string
 }
 
+/**
+ * @example
+ * ```tsx
+ * <PageHeader
+ *   title="Title"
+ *   description="Additional info in here. Caution!! May include amazingly written text."
+ *   actions={
+ *     <Button size="sm">
+ *       <Plus />
+ *       String
+ *     </Button>
+ *   }
+ * />
+ * ```
+ */
 function PageHeader({
   title,
   description,
